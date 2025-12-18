@@ -21,7 +21,7 @@ def get_repositories(username):
     url = f"https://api.github.com/users/{username}/repos?sort=created&direction=asc"
     try:
         response = requests.get(url, headers=HEADERS, timeout=10)
-        response.raise_for_status() #checks for HTTP errors (like 401, 404, 500).
+        response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
         print("Failed to fetch repositories:", e)
